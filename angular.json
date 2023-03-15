@@ -3,5 +3,129 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "makav": {
+      "projectType": "library",
+      "root": "projects/makav",
+      "sourceRoot": "projects/makav/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/makav/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/makav/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/makav/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/makav/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "makav-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/makav-app",
+      "sourceRoot": "projects/makav-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/makav-app",
+            "index": "projects/makav-app/src/index.html",
+            "main": "projects/makav-app/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/makav-app/tsconfig.app.json",
+            "assets": [
+              "projects/makav-app/src/favicon.ico",
+              "projects/makav-app/src/assets"
+            ],
+            "styles": [
+              "projects/makav-app/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "makav-app:build:production"
+            },
+            "development": {
+              "browserTarget": "makav-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "makav-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/makav-app/tsconfig.spec.json",
+            "assets": [
+              "projects/makav-app/src/favicon.ico",
+              "projects/makav-app/src/assets"
+            ],
+            "styles": [
+              "projects/makav-app/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
   }
 }

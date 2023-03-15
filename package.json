@@ -1,11 +1,11 @@
 {
-  "name": "makav",
-  "version": "1.1cd.0",
+  "name": "makav-lib",
+  "version": "0.0.2",
   "author": "Akhil Shekhar",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/AkhilShekhar-lp/makav.git"
   },
   "contributors": [],
   "peerDependencies": {

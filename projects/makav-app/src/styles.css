@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+:root {
+  --wrapper-border-radius: 15px;
+  --title-color: #08090a;
+  --sub-title-color: #41474d;
+  --title-weight: bold;
+  --submitbtn-bg: #41474d;
+  --submitbtn-text-color: #f4faff;
+  --submitbtn-width:none;
+  --input-placeholder-color: #e8eaed;
+  --input-bg: #a7a8aa;
+  --input-border: 5px;
+  --input-border-bottom:none;
+  --box-background: #F4F4F4;
+  --box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  --box-border:none;
+  --box-height: 385px;
+}
+
+
+body {
+  background: var(--background-default);
+  font-family: sans-serif;
+}
+
+
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  column-gap: 6rem;
+  margin: 23px 0px 23px;
+}

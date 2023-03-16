@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ThemeService } from './theme/theme.service';
 
 @Component({
   selector: 'lib-makav',
@@ -8,15 +9,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class MakavComponent {
 
-  @Input() type: any = 'default';
+  @Input() theme: any = 'default';
+  @Input() type: any = 'login';
   @Input() title: any = 'My Title';
   @Input() sub_title: any = 'This is a sub title';
-  @Input() background: any = '#ffffff';
   @Input() box: boolean = false;
   @Input() isRememberMe: boolean = false;
   @Input() isForgot: boolean = false;
   @Input() border_radius: any = '';
-  @Input() button:any;
+  @Input() button: any;
 
   @Input() labelSize: any = '15px';
   @Input() errorSize: any = '10px';
@@ -26,10 +27,28 @@ export class MakavComponent {
   formGroup!: FormGroup;
 
 
+  constructor(private themeService: ThemeService) { }
+
+
 
   ngOnInit() {
     console.log('type is = ', this.type, '', 'Form Fields are = ', this.form_fields, this.labelSize, this.errorSize);
     this.initialiseForm();
+    this.toggleTheme();
+    console.log(this.theme);
+  }
+
+
+
+
+  toggleTheme() {
+    if (this.theme == 'purple') {
+      this.themeService.setPurpleTheme();
+    } else if (this.theme == 'ocean') {
+      this.themeService.setOceanTheme();
+    } else if (this.theme == 'primary') {
+      this.themeService.setPrimaryTheme();
+    }
   }
 
 
@@ -55,7 +74,7 @@ export class MakavComponent {
       });
 
       if (this.isForgot) {
-        group['rememberMe'] = new FormControl(false);
+        group['remember_me'] = new FormControl(false);
       }
 
       this.formGroup = new FormGroup(group);

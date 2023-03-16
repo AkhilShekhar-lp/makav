@@ -1,4 +1,4 @@
-<div class="wrapper" *ngIf="type == 'default'" [ngStyle]="{'background':background}">
+<div class="wrapper" *ngIf="type == 'default'">
     <div class="heading">{{ title }}</div>
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
         <div *ngFor="let form_elem of form_fields">
@@ -44,20 +44,21 @@
 
 
 
-<div class="wrapper" *ngIf="type == 'login'"
-    [ngStyle]="{'background':background,'border-radius':border_radius?border_radius:'9px','border':box?'1px solid #eeeeee':''}">
+<div class="wrapper" *ngIf="type == 'login'">
     <div class="heading">{{ title }}</div>
-    <div class="heading">{{ sub_title }}</div>
+    <div class="sub-heading">{{ sub_title }}</div>
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
         <div *ngFor="let form_elem of form_fields">
             <div [ngSwitch]="form_elem.type">
 
                 <div class="pad-1">
-                    <div class="br" [ngStyle]="{'font-size':form_elem.font_size?form_elem.font_size:'13px' }">
+                    <div class="br" *ngIf="theme == 'ocean'"
+                        [ngStyle]="{'font-size':form_elem.font_size?form_elem.font_size:'13px' }">
                         {{form_elem.label | titlecase }}
                     </div>
-                    <input type="{{ form_elem.type?form_elem.type:'text' }}" formControlName="{{form_elem.label}}"
-                        placeholder="{{ form_elem.placeholder? form_elem.placeholder: form_elem.label }}">
+                    <input class="field" type="{{ form_elem.type?form_elem.type:'text' }}"
+                        formControlName="{{form_elem.label}}"
+                        placeholder="{{ form_elem.placeholder? form_elem.placeholder: form_elem.label | titlecase }}">
                 </div>
 
                 <div class="error" [ngStyle]="{'font-size':errorSize}" *ngIf="((formGroup.get(form_elem.label)?.touched || formGroup.get(form_elem.label)?.dirty) &&
@@ -75,12 +76,12 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-between" *ngIf="isForgot || isRememberMe">
-            <div class="forgot-pass" role="button" *ngIf="isForgot">
-                <a>Forgot email or password?</a>
+        <div class="flex">
+            <div role="button" *ngIf="isForgot">
+                Forgot email or password?
             </div>
             <div *ngIf="isRememberMe">
-                <label class="checkbox">
+                <label>
                     <input type="checkbox" formControlName="remember_me" />
                     <span class="pt-1"> Remember me</span>
                 </label>

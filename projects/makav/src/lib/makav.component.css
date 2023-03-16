@@ -1,0 +1,77 @@
+.wrapper {
+    width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 77px 55px 53px 55px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border: 2px solid #e8e6e6;
+}
+
+
+.br {
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    line-height: 2rem;
+    border-bottom: 1px solid #c6c6c6;
+}
+
+
+
+.submit-btn {
+    cursor: pointer;
+    font-family: sans-serif;
+    background: #22945E;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 3px;
+    padding: 10px 25px 10px 25px;
+    text-transform: uppercase;
+    border-radius: 7px;
+    border: 1px solid #22945E;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.pad-1 {
+    padding: 10px 10px 10px 10px;
+}
+
+.error {
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: #be1d1d;
+    margin-left: 10px;
+}
+
+.heading {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    font-size: 33px;
+}
+
+input {
+    border: none;
+}
+
+.center {
+    text-align: center;
+}
+
+input,
+select {
+    outline: none;
+    margin-top: 15px;
+}
+
+::placeholder {
+    font-family: sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}

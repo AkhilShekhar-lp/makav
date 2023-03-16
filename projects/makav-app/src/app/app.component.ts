@@ -2,9 +2,28 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: '<lib-makav></lib-makav>',
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'makav-app';
+  title = 'test-app';
+  form_fields = [
+    {
+      "type": "input",
+      "label": "first name",
+    },
+    {
+      "type": "input",
+      "label": "email",
+    },
+    {
+      "type": "password",
+      "label": "password",
+    }
+  ];
+
+
+  getForm(e: any) {
+    console.log(e);
+  }
 }

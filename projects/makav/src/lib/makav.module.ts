@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MakavComponent } from './makav.component';
+
 
 
 
@@ -8,6 +11,9 @@ import { MakavComponent } from './makav.component';
     MakavComponent
   ],
   imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     MakavComponent

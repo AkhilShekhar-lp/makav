@@ -1,5 +1,6 @@
 <div class="wrapper" *ngIf="type == 'default'">
     <div class="heading">{{ title }}</div>
+    <div class="sub-heading">{{ sub_title }}</div>
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
         <div *ngFor="let form_elem of form_fields">
             <div [ngSwitch]="form_elem.type">

@@ -10,7 +10,7 @@ import { ThemeService } from './theme/theme.service';
 export class MakavComponent {
 
   @Input() theme: any = 'default';
-  @Input() type: any = 'login';
+  @Input() type: any = 'default';
   @Input() title: any = 'My Title';
   @Input() sub_title: any = 'This is a sub title';
   @Input() box: boolean = false;
@@ -32,10 +32,8 @@ export class MakavComponent {
 
 
   ngOnInit() {
-    console.log('type is = ', this.type, '', 'Form Fields are = ', this.form_fields, this.labelSize, this.errorSize);
     this.initialiseForm();
     this.toggleTheme();
-    console.log(this.theme);
   }
 
 

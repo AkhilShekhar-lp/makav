@@ -21,6 +21,18 @@ export class AppComponent {
       "label": "password",
       "font_size": "",
       "placeholder": "Password"
+    },
+    {
+      "type": "email",
+      "label": "password",
+      "font_size": "",
+      "placeholder": "Password"
+    },
+    {
+      "type": "input",
+      "label": "first name",
+      "font_size": "",
+      "placeholder": "First Name"
     }
   ];
 
